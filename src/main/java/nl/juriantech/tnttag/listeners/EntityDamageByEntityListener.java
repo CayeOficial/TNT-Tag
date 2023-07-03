@@ -32,10 +32,16 @@ public class EntityDamageByEntityListener implements Listener {
 
         Arena damagerArena = plugin.getArenaManager().getPlayerArena(damager);
         Arena victimArena = plugin.getArenaManager().getPlayerArena(victim);
-        if (victimArena == null || damagerArena == null || !victimArena.getName().equals(damagerArena.getName())) return;
+
+        if (victimArena == null || damagerArena == null || !victimArena.getName().equals(damagerArena.getName())) {
+            return;
+        }
 
         if (damagerArena.getGameManager().state == GameState.INGAME) {
-            victim.setHealth(victim.getHealth() + event.getDamage());
+            if (damagerArena.getGameManager().playerManager.getPlayers().get(victim) == PlayerType.TAGGER) {
+                return; // Stop processing if the victim is a tagger
+            }
+            victim.setHealth(28);
         } else {
             event.setCancelled(true);
         }
