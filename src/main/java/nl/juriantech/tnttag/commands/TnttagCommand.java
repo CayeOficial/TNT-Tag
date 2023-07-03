@@ -175,16 +175,10 @@ public class TnttagCommand {
             return;
         }
 
-        for (String string : Tnttag.customizationfile.getStringList("info-command")) {
-            ChatUtils.sendCustomMessage(player,
-                    string
-                    .replace("{arena_name}", arenaObj.getName())
-                    .replace("{is_running}", String.valueOf(arenaObj.getGameManager().isRunning()))
-                    .replace("{countdown}", String.valueOf(arenaObj.getCountdown()))
-                    .replace("{min_players}", String.valueOf(arenaObj.getMinPlayers()))
-                    .replace("{max_players}", String.valueOf(arenaObj.getMaxPlayers()))
-            );
-        }
+        int countdown = arenaObj.getCountdown();
+        int minPlayers = arenaObj.getMinPlayers();
+        int maxPlayers = arenaObj.getMaxPlayers();
+        ChatUtils.sendCustomMessage(player, "&6Countdown: " + countdown + ", minPlayers: " + minPlayers + ", maxPlayers: " + maxPlayers);
     }
 
     //setlobby command for the global lobby

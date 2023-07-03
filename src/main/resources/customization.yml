@@ -54,15 +54,6 @@ info-command:
   - "&bCountdown: &f{countdown}"
   - "&bPlayers (min/max): &f{min_players}/{max_players}"
 
-info-command:
-  - "&b=========TNT-Tag========="
-  - ""
-  - "&3ARENA:&b {arena_name}"
-  - ""
-  - "&bIs running?: &f{is_running}"
-  - "&bCountdown: &f{countdown}"
-  - "&bPlayers (min/max): &f{min_players}/{max_players}"
-
 help-menu:
   - "&b=========TNT-Tag========="
   - "&a/tnttag help - Shows you this menu!"
